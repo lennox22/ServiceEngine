@@ -3,7 +3,7 @@
 		class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3"
 	>
 		<div class="container">
-			<a class="navbar-brand" [routerLink]="['/']">HelpDeskTicketSystem</a>
+			<a class="navbar-brand" [routerLink]="['/']">Help Desk</a>
 			<button
 				class="navbar-toggler"
 				type="button"
@@ -27,7 +27,14 @@
 					>
 						<a class="nav-link text-dark" [routerLink]="['/']">Home</a>
 					</li>
-					
+					<ng-container *ngIf="this.engineservice.username">
+						<li class="nav-item" [routerLinkActive]="['link-active']">
+							<a class="nav-link text-dark" [routerLink]="['/bookmark']">{{this.engineservice.username}}'s Bookmarks</a>
+						</li>
+						<li class="nav-item" [routerLinkActive]="['link-active']">
+							<span style="cursor:pointer" class="nav-link text-dark" (click)="logout()">LogOut</span>
+						</li>
+					</ng-container>
 				</ul>
 			</div>
 		</div>

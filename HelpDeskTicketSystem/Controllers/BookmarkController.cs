@@ -30,5 +30,12 @@ namespace HelpDeskTicketSystem.Controllers
             }
             return fromBookmark;
         }
+
+        [HttpDelete("delete/{id}")]
+        public bool DeleteBookmark (int id)
+        {
+            DAL.DeleteBookmark(id);
+            return true;
+        }
     }
 }

@@ -7,12 +7,16 @@ import { RouterModule } from '@angular/router';
 import { AppComponent } from './app.component';
 import { NavMenuComponent } from './nav-menu/nav-menu.component';
 import { HomeComponent } from './home/home.component';
+import { EngineService } from './engine.service';
+import { TicketListComponent } from './ticket-list/ticket-list.component';
+
 
 @NgModule({
 	declarations: [
 		AppComponent,
 		NavMenuComponent,
-		HomeComponent,
+    HomeComponent,
+    TicketListComponent,
 	],
 	imports: [
 		BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
@@ -21,8 +25,8 @@ import { HomeComponent } from './home/home.component';
 		RouterModule.forRoot([
 			{ path: '', component: HomeComponent, pathMatch: 'full' },
 		])
-	],
-	providers: [],
+  ],
+  providers: [EngineService],
 	bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -41,9 +41,23 @@ namespace HelpDeskTicketSystem.Models
             return db.Get<ticket>(id);
         }
 
-        public static bool CloseTicket (int id, string user, DateTime timestamp)
+        public static bool CloseTicket (ticket updatedTicket)
         {
-            db.Update(id)
+            db.Update(updatedTicket);
+            return true;
+        }
+
+        public static bool DeleteTicket (int deleteid)
+        {
+            ticket toDelete = new ticket() { id = deleteid };
+            db.Delete(toDelete);
+            return true;
+        }
+
+        public static bool DeleteBookmark (int deleteid)
+        {
+            bookmark toDelete = new bookmark() { id = deleteid };
+            db.Delete(toDelete);
             return true;
         }
     }
